@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">安卓世界</string>
+    <string name="tv_content">Android Read and Write Text from/to a File.</string>
+    <string name="edit_hint">输入文字保存到本地文件</string>
+    <string name="btn_write_text">Write Text into File</string>
+    <string name="btn_read_text">Read Text from File</string>
+</resources>

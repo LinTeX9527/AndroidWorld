@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <!--显示文本-->
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:padding="5dp"
+        android:text="@string/tv_content"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        />
+
+    <!--编辑框-->
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/tv_show"
+        android:layout_marginTop="22dp"
+        android:minLines="5"
+        android:layout_margin="5dp"
+        android:hint="@string/edit_hint"
+        android:inputType="textMultiLine"
+        >
+        <requestFocus/>
+    </EditText>
+
+    <!--按钮，保存输入到文件-->
+    <Button
+        android:id="@+id/btn_write"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_write_text"
+        android:layout_below="@id/edit_text"
+        android:layout_margin="5dp"
+        />
+
+
+    <!--按钮，读取文件内容并显示-->
+    <Button
+        android:id="@+id/btn_read"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_read_text"
+        android:layout_below="@id/btn_write"
+        android:layout_margin="5dp"
+        />
+
+</RelativeLayout>

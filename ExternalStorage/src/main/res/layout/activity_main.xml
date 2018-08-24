@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--编辑框，用户输入信息-->
+    <EditText
+        android:id="@+id/edit_userinput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/edit_hint"
+        android:minLines="3"
+        android:maxLines="5"
+        >
+        <requestFocus/>
+    </EditText>
+
+
+    <!--保存和读取的按钮，保存到external storage 的公共目录 PUBLIC_DOCUMENT-->
+    <LinearLayout
+        android:id="@+id/layout_external_public"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btn_write_public"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/write_to_external_public"
+            />
+
+        <Button
+            android:id="@+id/btn_read_public"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/read_from_external_public"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_copy_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/copy_photo"
+        />
+
+</LinearLayout>

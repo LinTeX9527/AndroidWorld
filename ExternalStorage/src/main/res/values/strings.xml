@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ExternalStorage</string>
+    <string name="edit_hint">输入文本，保存到ExternalStorage中</string>
+    <string name="write_to_external_public">保存到external public</string>
+    <string name="read_from_external_public">读取external public</string>
+    <string name="copy_photo">复制图片</string>
+</resources>

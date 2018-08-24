@@ -4,4 +4,7 @@
     <string name="write_to_external_public">保存到external public</string>
     <string name="read_from_external_public">读取external public</string>
     <string name="copy_photo">复制图片</string>
+    <string name="operation_external_private">外部私有存储空间操作</string>
+    <string name="write_external_private">写入到外部私有</string>
+    <string name="read_external_private">读取外部私有</string>
 </resources>

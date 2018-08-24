@@ -34,7 +34,7 @@ import java.util.List;
  * @author lintex9527@yeah.net
  * @date   2018/08/24 10:25
  * 在External Storage 上读写文件操作
- * 
+ *
  * 其实External Storage上可以保存应用私有和全局的文件，但是这里的测试重点在于分享全局的文件。
  *
  */
@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnWriteExternalPublic.setOnClickListener(this);
         btnReadExternalPublic.setOnClickListener(this);
         findViewById(R.id.btn_copy_photo).setOnClickListener(this);
+        findViewById(R.id.btn_write_private).setOnClickListener(this);
+        findViewById(R.id.btn_read_private).setOnClickListener(this);
     }
 
 
@@ -86,10 +88,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void onClick(View v) {
+        String userinput = editInput.getText().toString();
         switch (v.getId()) {
             case R.id.btn_write_public:
                 // 保存到external storage 的公共文档目录
-                String userinput = editInput.getText().toString();
                 if (isExternalStorageAvailable() && !isExternalStorageReadOnly()) { // external storage 存在且可用
                     File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
                     File file = new File(dir, PUBLIC_FILENAME);
@@ -144,6 +146,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     } catch (Exception e) {
                         e.printStackTrace();
                         showMessage("复制图片失败");
+                    }
+                }
+                break;
+            case R.id.btn_write_private:
+                // 写入到外部私有空间的文件
+                if (isExternalStorageAvailable() && !isExternalStorageReadOnly()) {
+                    File path = getExternalFilesDir("private-data");
+                    File file = new File(path, "userinput_private.txt");
+                    Log.d(TAG, "此文件的路径是：" + file.getAbsolutePath());
+                    try {
+                        OutputStream outputStream = new FileOutputStream(file);
+                        outputStream.write(userinput.getBytes());
+                        outputStream.flush();
+                        outputStream.close();
+                        showMessage("写入到外部私有空间成功");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        showMessage("写入到外部私有空间失败");
+                    }
+                }
+                editInput.setText("");
+                break;
+            case R.id.btn_read_private:
+                // 读取外部私有空间的文件
+                if (isExternalStorageAvailable()) {
+                    File file = new File(getExternalFilesDir("private-data"), "userinput_private.txt");
+                    Log.d(TAG, "此文件的路径是：" + file.getAbsolutePath());
+                    try {
+                        FileInputStream fileInputStream = new FileInputStream(file);
+                        byte[] data = new byte[fileInputStream.available()];
+                        fileInputStream.read(data);
+                        String text = new String(data);
+                        editInput.setText(text);
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
                 break;

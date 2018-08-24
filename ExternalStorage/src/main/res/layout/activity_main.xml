@@ -55,4 +55,39 @@
         android:text="@string/copy_photo"
         />
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/operation_external_private"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        />
+    <!--保存和读取的按钮，保存到external storage 的私有目录，仅针对当前的APP可见-->
+    <LinearLayout
+        android:id="@+id/layout_external_private"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btn_write_private"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/write_external_private"
+            />
+
+        <Button
+            android:id="@+id/btn_read_private"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/read_external_private"
+            />
+
+    </LinearLayout>
+
 </LinearLayout>

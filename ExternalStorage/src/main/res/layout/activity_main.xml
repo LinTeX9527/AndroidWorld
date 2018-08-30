@@ -47,13 +47,35 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_copy_photo"
+    <!--复制图片、删除图片-->
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/copy_photo"
-        />
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        >
+
+        <Button
+            android:id="@+id/btn_copy_photo"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/copy_photo"
+            />
+
+        <Button
+            android:id="@+id/btn_delete_photo"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/delete_photo"
+            />
+    </LinearLayout>
+
 
 
     <TextView

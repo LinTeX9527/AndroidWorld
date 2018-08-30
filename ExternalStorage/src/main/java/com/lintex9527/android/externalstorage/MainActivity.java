@@ -3,6 +3,8 @@ package com.lintex9527.android.externalstorage;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -77,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnWriteExternalPublic.setOnClickListener(this);
         btnReadExternalPublic.setOnClickListener(this);
         findViewById(R.id.btn_copy_photo).setOnClickListener(this);
+        findViewById(R.id.btn_delete_photo).setOnClickListener(this);
         findViewById(R.id.btn_write_private).setOnClickListener(this);
         findViewById(R.id.btn_read_private).setOnClickListener(this);
     }
@@ -143,10 +146,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         inputStream.close();
                         outputStream.close();
                         showMessage("复制图片成功");
+                        // 让扫描器扫描文件变更
+                        MediaScannerConnection.scanFile(mContext, new String[]{file.getPath()}, null,
+                                new MediaScannerConnection.OnScanCompletedListener() {
+                                    @Override
+                                    public void onScanCompleted(String path, Uri uri) {
+                                        Log.d(TAG, "成功扫描到文件：" + path);
+                                        Log.d(TAG, "对应的Uri: " + uri);
+                                    }
+                                });
                     } catch (Exception e) {
                         e.printStackTrace();
                         showMessage("复制图片失败");
                     }
+                }
+                break;
+            case R.id.btn_delete_photo:
+                // 删除图片
+                if (isExternalStorageAvailable()) {
+                    File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "copy-cat.jpg");
+                    file.delete();
                 }
                 break;
             case R.id.btn_write_private:

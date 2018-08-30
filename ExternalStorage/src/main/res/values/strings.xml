@@ -7,4 +7,5 @@
     <string name="operation_external_private">外部私有存储空间操作</string>
     <string name="write_external_private">写入到外部私有</string>
     <string name="read_external_private">读取外部私有</string>
+    <string name="delete_photo">删除图片</string>
 </resources>

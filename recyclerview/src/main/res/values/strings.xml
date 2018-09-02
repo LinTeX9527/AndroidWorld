@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RecyclerView</string>
     <string name="tv_hint">RecyclerView暂未加载数据</string>
+    <string name="fruit_conentdes">显示水果对应的图片</string>
 </resources>

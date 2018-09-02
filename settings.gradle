@@ -1,1 +1,1 @@
-include ':InternalStorage', ':ExternalStorage'
+include ':InternalStorage', ':ExternalStorage', ':recyclerview'

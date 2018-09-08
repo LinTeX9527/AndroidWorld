@@ -13,6 +13,9 @@ import java.util.List;
  * 注意RecyclerView控件是在 com.android.support:recyclerview-v7中的
  * 需要在当前模块的build.gradle中的dependencies闭包中添加依赖。
  *
+ * ListView 很难或者根本无法实现横向布局，但是 RecyclerView 却很轻松地实现，这是因为 RecyclerView 把
+ * 子项的布局交给了 LayoutManager ，LayoutManager 中指定了一套可扩展的布局排列接口，子类只要按照接口的规范来实现，
+ * 就能定制出各种不同排列方式的布局了。
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         initFruits(); // 初始化水果数据
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//        为了实现瀑布流效果，线性布局设置为水平方向的，但是子布局是垂直方向的
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
         FruitAdapter adapter = new FruitAdapter(mFruitList);
         recyclerView.setAdapter(adapter);

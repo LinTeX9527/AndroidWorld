@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ChatUI</string>
+    <string name="send">发送</string>
+    <string name="input_hint">Type something here</string>
+</resources>
